@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera página</title>
-    <style>
-        body {
-            background: #101018;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        h1 {
-            color: #8b7cff;
-        }
-
-        p {
-            color: #cccccc;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ItsGonzax</title>
+  <meta name="description" content="ItsGonzax — Fundador de SealClient. Jugador & Helper en mc.hystic.net.">
+  <meta name="theme-color" content="#0b4a78">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-    <h1>¡Hola, mundo!</h1>
-    <p>Esta es mi primera página web.</p>
+
+  <!-- 1 · PORTADA -->
+  <header class="sec hero">
+    <div class="hero__in">
+      <h1 class="reveal" style="--d:0s">ItsGonzax <img src="assets/img/icon-verified.png" alt="Verificado" width="160" height="160"></h1>
+      <p class="line reveal" style="--d:.12s">Fundador de SealClient</p>
+      <p class="line reveal" style="--d:.2s">Argentina @ Gonza <img src="assets/img/icon-flag.png" alt="" width="160" height="160"></p>
+      <p class="line reveal" style="--d:.28s">Miembro de Staff <img class="shield" src="assets/img/icon-shield.png" alt="" width="160" height="160"></p>
+      <p class="line line--sm reveal" style="--d:.36s">Jugador &amp; Helper en el servidor “mc.hystic.net” <img class="creeper" src="assets/img/icon-creeper.png" alt="" width="160" height="160"></p>
+      <a class="down reveal" style="--d:.5s" href="#proyectos">Mis proyectos aquí abajo <img src="assets/img/icon-arrow.png" alt="" width="160" height="160"></a>
+    </div>
+  </header>
+
+  <!-- 2 · SEAL CLIENT -->
+  <section class="sec reef" id="proyectos">
+    <h2 class="reef__title reveal">Seal Client</h2>
+    <img class="reef__logo reveal" src="assets/img/seal-logo.webp" alt="Logo de Seal Client" width="512" height="512">
+
+    <div class="reef__main reveal">
+      <h3 class="q">¿Qué es?</h3>
+      <p><span class="u">Seal Client</span>, <b>es un cliente de Minecraft, diseñado para ser uno de los mejores optimizados</b>, inspirado con las funciones de <b>Lunar Client</b> y <b>Dawn Client</b>, contiene un sistema de <b>Mods Integrados</b>.</p>
+      <h3 class="q q--2">¿Qué tanto estara optimizado?</h3>
+      <p><b>Estamos trabajando lo más posible</b>, para llegar a un <b>x3 de los FPS habituales en Minecraft</b> por defecto <b>(FPS por defecto, 50-65 en Minecraft por defecto)</b></p>
+    </div>
+
+    <ul class="reef__side reveal">
+      <li>Aun sigue en desarrollo este cliente.</li>
+      <li class="empty" aria-hidden="true"></li>
+      <li>Y no tenemos una fecha de lanzamiento, todavia</li>
+    </ul>
+  </section>
+
+  <!-- 3 · CONTACTO -->
+  <footer class="sec contact" id="contacto">
+    <div class="pattern" id="pattern" aria-hidden="true"></div>
+    <div class="contact__in">
+      <img class="avatar reveal" src="assets/img/avatar.webp" alt="Avatar de ItsGonzax" width="516" height="516">
+      <button class="discord reveal" type="button" id="discord" data-copy="itsgonzaxx" title="Clic para copiar el usuario">Contacto: Discord “itsgonzaxx”</button>
+      <p class="script reveal" aria-hidden="true">ItsGonzax</p>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite">Usuario copiado</div>
+  </footer>
+
 </body>
 </html>
