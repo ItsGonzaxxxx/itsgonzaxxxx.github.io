@@ -1,6 +1,6 @@
 /* ItsGonzax — réplica del diseño de Canva (3 páginas de 1366×768, 16:9).
    Escala: 1 unidad de diseño = 100/1366 vw. Mobile-first; desde 761px se activa el layout de escritorio. */
-:root{--u:1vw;--zoom:.50;--font:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;--script:"Alex Brush",cursive}
+:root{--u:1vw;--zoom:.85;--font:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;--script:"Alex Brush",cursive}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font);color:#fff;background:#0b4a78;overflow-x:hidden}

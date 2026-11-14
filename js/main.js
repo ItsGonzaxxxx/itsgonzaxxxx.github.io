@@ -1,23 +1,31 @@
 (() => {
   'use strict';
 
-  // Patrón de "ItsGonzax" repetido (sección de contacto)
+  // Patrón de "ItsGonzax" repetido (sección de contacto).
+  // Filas y palabras se calculan según el tamaño real, así siempre cubre todo (sin huecos con ningún zoom).
   const pattern = document.getElementById('pattern');
-  if (pattern) {
+  const buildPattern = () => {
+    if (!pattern) return;
+    const fs = parseFloat(getComputedStyle(pattern).fontSize) || 16;
+    const rows = Math.ceil(pattern.offsetHeight / (fs * 1.22)) + 3;
+    const words = Math.ceil(pattern.offsetWidth / (fs * 5)) + 4;
     const frag = document.createDocumentFragment();
-    for (let r = 0; r < 26; r++) {
+    for (let r = 0; r < rows; r++) {
       const row = document.createElement('div');
       row.className = 'row';
       row.style.marginLeft = `${-((r * 1.3) % 5).toFixed(2)}em`;
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < words; i++) {
         const s = document.createElement('span');
         s.textContent = 'ItsGonzax';
         row.appendChild(s);
       }
       frag.appendChild(row);
     }
-    pattern.appendChild(frag);
-  }
+    pattern.replaceChildren(frag);
+  };
+  buildPattern();
+  let rt;
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(buildPattern, 200); });
 
   // Aparición de elementos al hacer scroll
   const items = document.querySelectorAll('.reveal');
