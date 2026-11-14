@@ -1,11 +1,12 @@
 /* ItsGonzax — réplica del diseño de Canva (3 páginas de 1366×768, 16:9).
    Escala: 1 unidad de diseño = 100/1366 vw. Mobile-first; desde 761px se activa el layout de escritorio. */
-:root{--u:1vw;--font:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;--script:"Alex Brush",cursive}
+:root{--u:1vw;--zoom:.85;--font:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;--script:"Alex Brush",cursive}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font);color:#fff;background:#0b4a78;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 .sec{position:relative;overflow:hidden;background-size:cover;background-position:center}
+.stage{display:contents}
 
 /* Animación de entrada */
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease var(--d,0s),transform .8s ease var(--d,0s)}
@@ -53,33 +54,38 @@ img{display:block;max-width:100%;height:auto}
 
 /* ---------- ESCRITORIO / TABLET (diseño original) ---------- */
 @media (min-width:761px){
-  .sec{aspect-ratio:16/9;min-height:0}
+  /* Zoom: 1 = más grande · .85 = por defecto · .7 = más chico. La sección nunca supera el alto de la ventana. */
+  :root{--u:calc(min(1vw,100svh/56.25)*var(--zoom))}
+  .stage{display:block;position:absolute;top:0;left:50%;width:calc(100*var(--u));height:100%;transform:translateX(-50%)}
+  .sec{height:calc(56.25*var(--u));min-height:0}
   /* Hero */
   .hero{display:block}
-  .hero__in{position:absolute;inset:0;margin:0;padding:19.5vw 0 0}
+  .hero__in{position:absolute;inset:0;margin:0;padding:calc(19.5*var(--u)) 0 0}
   .hero h1{font-size:calc(var(--u)*10.4)}
   .line{height:calc(var(--u)*4.5);font-size:calc(var(--u)*3.1);line-height:1}
   .line--sm{font-size:calc(var(--u)*2.55)}
-  .down{margin-top:calc(var(--u)*.9);font-size:calc(var(--u)*3.9);transform:translateX(-5.2vw)}
-  .js .down.reveal{transform:translate(-5.2vw,18px)}
-  .js .down.reveal.in{transform:translateX(-5.2vw)}
+  .down{margin-top:calc(var(--u)*.9);font-size:calc(var(--u)*3.9);transform:translateX(calc(-5.2*var(--u)))}
+  .js .down.reveal{transform:translate(calc(-5.2*var(--u)),18px)}
+  .js .down.reveal.in{transform:translateX(calc(-5.2*var(--u)))}
   /* Seal Client */
   .reef{display:block;padding:0}
-  .reef>*{position:absolute}
-  .reef__title{right:6.5vw;top:7.2vw;font-size:5.4vw}
-  .reef__logo{left:1vw;top:5.2vw;width:25.5vw}
-  .reef__main{left:31vw;top:13.4vw;width:56vw;font-size:1.9vw;line-height:1.55}
-  .reef__main p+.q{margin-top:5.2vw}
-  .q--2{margin-left:.8vw}
-  .reef__side{left:6.5vw;top:30.8vw;width:21vw;padding-left:1.8vw;font-size:1.9vw;line-height:1.45}
+  .stage>*{position:absolute}
+  .reef__title{right:calc(6.5*var(--u));top:calc(7.2*var(--u));font-size:calc(5.4*var(--u))}
+  .reef__logo{left:calc(1*var(--u));top:calc(5.2*var(--u));width:calc(25.5*var(--u))}
+  .reef__main{left:calc(31*var(--u));top:calc(13.4*var(--u));width:calc(56*var(--u));font-size:calc(1.9*var(--u));line-height:1.55}
+  .reef__main p+.q{margin-top:calc(5.2*var(--u))}
+  .q--2{margin-left:calc(.8*var(--u))}
+  .reef__side{left:calc(6.5*var(--u));top:calc(30.8*var(--u));width:calc(21*var(--u));padding-left:calc(1.8*var(--u));font-size:calc(1.9*var(--u));line-height:1.45}
   /* Contacto */
   .contact{display:block}
-  .contact__in{position:absolute;inset:0;margin:0;padding:11.3vw 0 0}
-  .avatar{width:28.6vw}
-  .discord{margin-top:1.2vw;font-size:2vw}
-  .script{font-size:6.2vw;margin-top:.4vw}
-  .pattern{font-size:5.3vw}
+  .contact__in{position:absolute;inset:0;margin:0;padding:calc(11.3*var(--u)) 0 0}
+  .avatar{width:calc(28.6*var(--u))}
+  .discord{margin-top:calc(1.2*var(--u));font-size:calc(2*var(--u))}
+  .script{font-size:calc(6.2*var(--u));margin-top:calc(.4*var(--u))}
+  .pattern{font-size:calc(5.3*var(--u))}
 }
+
+@media (min-width:761px) and (max-width:1024px){:root{--zoom:1}}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
